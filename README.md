@@ -1,12 +1,8 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-# Dockerized BloQCat Setup
-Based on:
-1. [QuAntiL Environment](https://github.com/UST-QuAntiL/quantil-docker)
-2. [Lauffeuer Framework](https://github.com/lharzenetter/lauffeuer-framework)
-3. [Lauffeuer Modeling](https://github.com/lharzenetter/tosca-lauffeuer-modeling)
+# Dockerized QuAntiL Environment
 
-Docker Compose file for running the entire BloQCat environment provided by the [QC Atlas UI](https://github.com/UST-QuAntiL/qc-atlas-ui).  
+Docker Compose file for running the entire QuAntiL environment provided by the [QC Atlas UI](https://github.com/UST-QuAntiL/qc-atlas-ui).  
 Thereby, the [QC Atlas](https://github.com/UST-QuAntiL/qc-atlas) builds the basic knowledge base.  
 Furthermore, different features, e.g. [NISQ Analyzer](https://github.com/UST-QuAntiL/nisq-analyzer), [Pattern Atlas](https://github.com/PatternAtlas/pattern-atlas-api), and [QProv](https://github.com/UST-QuAntiL/qprov), are supported on top of the QC Atlas.  
 These features and their related backend components are defined as feature sets.  
