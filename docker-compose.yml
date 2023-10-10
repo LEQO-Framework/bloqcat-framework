@@ -38,7 +38,7 @@ services:
     networks:
       - default
   qc-atlas-ui:
-    image: planqk/qc-atlas-ui:v3.2.0
+    image: aldekal/qc-atlas-ui:bloqcat
     depends_on:
       - config-server
     environment:
