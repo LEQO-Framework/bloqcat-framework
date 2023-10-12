@@ -2,11 +2,11 @@ FROM lmmdock/postgres-multi:latest
 
 LABEL MAINTAINER Manuela Weigold <manuela.weigold@iaas.uni-stuttgart.de>
 
-ENV QC_ATLAS_CONTENT_REPOSITORY_URL "git@github.com:UST-QuAntiL/planqk-atlas-content.git"
+ENV QC_ATLAS_CONTENT_REPOSITORY_URL "https://github.com/aldekal/qc-atlas-content.git"
 ENV QC_ATLAS_CONTENT_REPOSITORY_PATH "/var/qc-atlas/testdata"
-ENV QC_ATLAS_CONTENT_REPOSITORY_BRANCH "master"
+ENV QC_ATLAS_CONTENT_REPOSITORY_BRANCH "main"
 ENV QC_ATLAS_SUBFOLDER_CONTENT_BACKUP_FILES "example-data/SQL/backup-files"
-ENV NISQ_CONTENT_REPOSITORY_URL "git@github.com:UST-QuAntiL/nisq-analyzer-content.git"
+ENV NISQ_CONTENT_REPOSITORY_URL "https://github.com/UST-QuAntiL/nisq-analyzer-content.git"
 ENV NISQ_CONTENT_REPOSITORY_PATH "/var/nisq/testdata"
 ENV NISQ_CONTENT_REPOSITORY_BRANCH "v1.1.0"
 ENV NISQ_SUBFOLDER_CONTENT_BACKUP_FILES "example-data/SQL/backup-files"

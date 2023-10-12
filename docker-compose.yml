@@ -32,7 +32,7 @@ services:
       QPROV_DB: qprov
     #volumes:
       # use this volume to save the postgres data
-      # - ./postgres-data:/var/lib/postgresql/data
+      #- ./postgres-data:/var/lib/postgresql/data
     ports:
       - '5060:5060'
     networks:
