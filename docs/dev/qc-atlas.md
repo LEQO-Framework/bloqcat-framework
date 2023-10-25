@@ -4,6 +4,7 @@
 - node version v16.20.2
 - npm version 8.19.4
 - Docker & Docker Compose
+
 ## Steps
 1. Clone the QC-Atlas UI [repository](https://github.com/aldekal/qc-atlas-ui.git)
 2. The UI depends on some other components, therefore clone the [framework repository](https://github.com/aldekal/bloqcat-framework.git)
