@@ -14,6 +14,8 @@ These features and their related backend components are defined as feature sets.
 
 The defined feature sets are namely:  
 - `all` (runs all features)
+- `qc-atlas`
+- `bloqcat`
 - `nisqAnalyzer`
 - `nisqAnalyzerCompilerComparison`
 - `patternAtlas`
@@ -23,11 +25,10 @@ A detailed documentation can be found [here](https://quantil.readthedocs.io/en/l
 
 The fastest way to get started is using [Docker Compose](https://docs.docker.com/compose/).  
 
-The base components QC Atlas, QC Atlas UI, LaTeX Renderer, and the databases without any of the named features run by default using:
+The base components QC Atlas, QC Atlas UI, LaTeX Renderer, winery, and the databases run by default using:
 ```shell 
- docker-compose pull
- docker-compose up db -d
- docker-compose up
+  docker-compose up db -d
+  docker-compose --profile bloqcat up -d
  ```
   
 > ⚠️ The database (db) must be started before the other containers to ensure that it was fully initialized. Otherwise the other containers may fail to start.
@@ -35,19 +36,9 @@ The base components QC Atlas, QC Atlas UI, LaTeX Renderer, and the databases wit
 For running certain feature sets on top of the base components, [Profiles](https://docs.docker.com/compose/profiles/) are used.  
 To start a certain feature set run:
   ```shell
-  docker-compose --profile <name-of-feature-set> pull
   docker-compose up db -d
-  docker-compose --profile <name-of-feature-set> up
+  docker-compose --profile <name-of-feature-set> up -d
   ```
-
-For running multiple feature sets, e.g. two sets, run:
-  ```shell
-  docker-compose --profile <name-of-feature-set-1> --profile <name-of-feature-set-2> pull
-  docker-compose --profile <name-of-feature-set-1> up db -d
-  docker-compose --profile <name-of-feature-set-1> --profile <name-of-feature-set-2> up db
-  ```
-
-For running all feature sets, choose `--profile all`.
 
 
 | QuAntiL Component | URL | GitHub | Docker Hub |
@@ -104,14 +95,6 @@ docker-compose logs -f [--tail=1 <SERVICE_NAME>...]
 docker-compose logs -f qc-atlas db
 ```
 
-### Import Example Data
-
-See [QuAntil documentation](https://ust-quantil.github.io/quantil-docs/developer-guide/docker/)
-
-## Acknowledgements
-
- Current development is supported by the [Federal Ministry for Economic Affairs and Energy] as part of the [PlanQK] project (01MK20005N) and the DFG’s Excellence Initiative project [SimTech] (EXC 2075 - 390740016).
-
  ## Haftungsausschluss
 
  Dies ist ein Forschungsprototyp.
@@ -121,12 +104,4 @@ See [QuAntil documentation](https://ust-quantil.github.io/quantil-docs/developer
 
  Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE.
  You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
-
- ## License
-
- SPDX-License-Identifier: Apache-2.0
-
-   [Federal Ministry for Economic Affairs and Energy]: http://www.bmwi.de/EN
-   [PlanQK]: https://planqk.de
-   [SimTech]: https://www.simtech.uni-stuttgart.de/
 
