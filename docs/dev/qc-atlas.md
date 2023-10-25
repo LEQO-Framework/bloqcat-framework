@@ -13,7 +13,10 @@
     docker-compose up db -d
     docker-compose --profile bloqcat up -d
     ```
+    in the root directory of the **framework** repository
 4. The QC Atlas UI is based on Angular. Install the Angular CLI globally with `npm install -g @angular/cli`
-5. Run `npm install` in the root directory of the repository
-6. Run `ng serve` in the root directory of the repository
+5. Run `npm install` in the root directory of the **QC-Atlas UI** repository
+6. Run `ng serve` in the root directory of the **QC-Atlas UI** repository
 7. Deployment server runs on `http://localhost:4210/`
+
+Changes in the UI are automatically applied to the deployment server.
