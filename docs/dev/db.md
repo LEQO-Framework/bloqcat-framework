@@ -1,3 +1,11 @@
+## Tips and Tricks for Database Design
+- Draw Entity-Relationship Diagrams unsing [dbdiagram](https://dbdiagram.io/d)
+   - click on import from `postgresql` 
+   - click on `upload .sql`
+   - select the file `0_schema.sql`
+   - click on `submit`
+
+
 ## Q & A
 ### Why are there tables like "implementation" and "implementation_revisions"?
 In a PostgreSQL database (and in relational databases in general), tables and revision tables are often used to track data changes and versions. This is commonly employed in applications where data history is important or where version control is required. In your specific case, you mentioned tables like "implementation" and "implementation_revisions." Here's an explanation of why such tables might be used:
