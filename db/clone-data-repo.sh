@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # clone repo, if successful copy setup script to /docker-entrypoint-initdb.d/
-git clone ${QC_ATLAS_CONTENT_REPOSITORY_URL} ${QC_ATLAS_CONTENT_REPOSITORY_PATH}
+git clone --single-branch --branch ${QC_ATLAS_CONTENT_REPOSITORY_BRANCH} ${QC_ATLAS_CONTENT_REPOSITORY_URL} ${QC_ATLAS_CONTENT_REPOSITORY_PATH}
 if [ -d "${QC_ATLAS_CONTENT_REPOSITORY_PATH}/${QC_ATLAS_SUBFOLDER_CONTENT_BACKUP_FILES}" ]; then
     cp setup-atlas.sh /docker-entrypoint-initdb.d/
     echo "${QC_ATLAS_CONTENT_REPOSITORY_BRANCH} of ${QC_ATLAS_CONTENT_REPOSITORY_URL}  repo was cloned successfully"

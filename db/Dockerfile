@@ -4,7 +4,7 @@ LABEL MAINTAINER Manuela Weigold <manuela.weigold@iaas.uni-stuttgart.de>
 
 ENV QC_ATLAS_CONTENT_REPOSITORY_URL "https://github.com/aldekal/qc-atlas-content.git"
 ENV QC_ATLAS_CONTENT_REPOSITORY_PATH "/var/qc-atlas/testdata"
-ENV QC_ATLAS_CONTENT_REPOSITORY_BRANCH "main"
+ENV QC_ATLAS_CONTENT_REPOSITORY_BRANCH "upload-file"
 ENV QC_ATLAS_SUBFOLDER_CONTENT_BACKUP_FILES "example-data/SQL/backup-files"
 ENV NISQ_CONTENT_REPOSITORY_URL "https://github.com/UST-QuAntiL/nisq-analyzer-content.git"
 ENV NISQ_CONTENT_REPOSITORY_PATH "/var/nisq/testdata"

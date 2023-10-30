@@ -67,7 +67,7 @@ services:
     networks:
       - default
   qc-atlas:
-    image: planqk/atlas:v3.1.1
+    image: aldekal/qc-atlas:bloqcat
     profiles: ["all", "qc-atlas", "bloqcat"]
     environment:
       POSTGRES_HOSTNAME: db
