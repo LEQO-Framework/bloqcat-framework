@@ -28,7 +28,6 @@ COPY setup-atlas.sh setup-atlas.sh
 COPY setup-nisq.sh setup-nisq.sh
 COPY setup-patternatlas.sh setup-patternatlas.sh
 
-COPY ssh_secret /run/secrets/ssh_secret
 
 EXPOSE 5060
 
