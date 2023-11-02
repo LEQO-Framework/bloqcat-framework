@@ -5,7 +5,6 @@ services:
   ##### Winery ###
   winery:
     image: opentosca/winery:lauffeuer
-    profiles: ["all", "qc-atlas", "bloqcat"]
     environment:
       WINERY_HOSTNAME: ${PUBLIC_HOSTNAME}
       WORKFLOWMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
