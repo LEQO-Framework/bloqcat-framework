@@ -25,7 +25,6 @@ RUN apt-get update -qq && apt-get install -qqy \
 # copy init scripts
 COPY clone-data-repo.sh clone-data-repo.sh
 COPY setup-atlas.sh setup-atlas.sh
-COPY setup-nisq.sh setup-nisq.sh
 COPY setup-patternatlas.sh setup-patternatlas.sh
 
 

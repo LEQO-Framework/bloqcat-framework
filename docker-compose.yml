@@ -24,13 +24,11 @@ services:
     image: quantil-db
     environment:
       # specifies user:pw for each container
-      POSTGRES_USERS: 'planqk:planqk|nisq:nisq|patternatlas:patternatlas|qprov:qprov'
+      POSTGRES_USERS: 'planqk:planqk|patternatlas:patternatlas'
       # specifies db name for each container
-      POSTGRES_DATABASES: 'planqk:planqk|nisq:nisq|patternatlas:patternatlas|qprov:qprov'
+      POSTGRES_DATABASES: 'planqk:planqk|patternatlas:patternatlas'
       ATLAS_DB: planqk
-      NISQ_DB: nisq
       PATTERNATLAS_DB: patternatlas
-      QPROV_DB: qprov
     #volumes:
       # use this volume to save the postgres data
       # - ./postgres-data:/var/lib/postgresql/data
