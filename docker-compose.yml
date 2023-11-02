@@ -78,7 +78,6 @@ services:
       - default
   pattern-atlas-api:
     image: patternatlas/pattern-atlas-api:latest
-    profiles: ["all", "patternAtlas"]
     environment:
       JDBC_DATABASE_URL: db
       JDBC_DATABASE_NAME: patternatlas
@@ -94,7 +93,6 @@ services:
       - default
   pattern-atlas-ui:
     image: patternatlas/pattern-atlas-ui:latest
-    profiles: [ "all", "patternAtlas" ]
     depends_on:
       - config-server
     environment:
