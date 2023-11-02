@@ -22,7 +22,6 @@ services:
     build:
       context: ./db
     image: quantil-db
-    profiles: ["all", "qc-atlas", "bloqcat"]
     environment:
       # specifies user:pw for each container
       POSTGRES_USERS: 'planqk:planqk|nisq:nisq|patternatlas:patternatlas|qprov:qprov'
@@ -34,14 +33,13 @@ services:
       QPROV_DB: qprov
     #volumes:
       # use this volume to save the postgres data
-      #- ./postgres-data:/var/lib/postgresql/data
+      # - ./postgres-data:/var/lib/postgresql/data
     ports:
       - '5060:5060'
     networks:
       - default
   qc-atlas-ui:
     image: aldekal/qc-atlas-ui:bloqcat
-    profiles: ["all", "qc-atlas", "bloqcat"]
     depends_on:
       - config-server
     environment:
@@ -68,7 +66,6 @@ services:
       - default
   qc-atlas:
     image: aldekal/qc-atlas:bloqcat
-    profiles: ["all", "qc-atlas", "bloqcat"]
     environment:
       POSTGRES_HOSTNAME: db
       POSTGRES_PORT: 5060
@@ -79,25 +76,6 @@ services:
       - "6626:6626"
     networks:
       - default
-  config-server:
-    image: quay.io/coreos/etcd:latest
-    profiles: ["all", "qc-atlas", "bloqcat"]
-    environment:
-      ETCD_NAME: config-node1
-      ETCD_CORS: "*"
-      ETCD_ADVERTISE_CLIENT_URLS: "http://config-server:2379"
-      ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
-      ETCDCTL_API: 3
-    ports:
-      - "2379:2379"
-    networks:
-      - default
-  # used by qc-atlas-ui to render latex
-  latex-renderer:
-    image: planqk/latex-renderer:v1.2.0
-    profiles: ["all", "qc-atlas", "bloqcat"]
-    ports:
-      - "5030:5030"
   pattern-atlas-api:
     image: patternatlas/pattern-atlas-api:v1.6.1
     profiles: ["all", "patternAtlas"]
@@ -159,6 +137,12 @@ services:
       - '5010:5010'
     networks:
       - default
+  # used by qc-atlas-ui to render latex
+  latex-renderer:
+    image: planqk/latex-renderer:v1.2.0
+    ports:
+      - "5030:5030"
+
   quantum-transpiler:
     image: planqk/quantum-transpiler-backend:v1.0.2
     profiles: ["all", "nisqAnalyzerCompilerComparison"]
@@ -329,6 +313,18 @@ services:
       QISKIT_SERVICE_PORT: 5013
     ports:
       - "5021:5021"
+    networks:
+      - default
+  config-server:
+    image: quay.io/coreos/etcd:latest
+    environment:
+      ETCD_NAME: config-node1
+      ETCD_CORS: "*"
+      ETCD_ADVERTISE_CLIENT_URLS: "http://config-server:2379"
+      ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
+      ETCDCTL_API: 3
+    ports:
+      - "2379:2379"
     networks:
       - default
 networks:
