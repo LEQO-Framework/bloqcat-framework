@@ -9,13 +9,20 @@
 ## Hardware requirements
 - For Docker at least 2 GB RAM
 
+## Quickstart
+The base components QC Atlas, QC Atlas UI, LaTeX Renderer, Winery, and the databases run by default using:
+```shell 
+  docker-compose up db -d
+  docker-compose up -d
+ ```
+
 ## What is BloQCat Framework?
 
 
 ## How to & Developer Guide
 - [Developer Guide](dev/developer-guide.md)
 - [Run the QC Atlas UI locally](dev/qc-atlas.md)
-- 
+//TODO Link to other Docs
  
 ## Haftungsausschluss
 Dies ist ein Forschungsprototyp.Die Haftung für entgangenen Gewinn, Produktionsausfall, Betriebsunterbrechung, entgangene Nutzungen, Verlust von Daten und Informationen, Finanzierungsaufwendungen sowie sonstige Vermögens- und Folgeschäden ist, außer in Fällen von grober Fahrlässigkeit, Vorsatz und Personenschäden, ausgeschlossen.
