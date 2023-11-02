@@ -15,7 +15,6 @@ These features and their related backend components are defined as feature sets.
 The defined feature sets are namely:  
 - `all` (runs all features)
 - `qc-atlas`
-- `bloqcat`
 - `nisqAnalyzer`
 - `nisqAnalyzerCompilerComparison`
 - `patternAtlas`
@@ -25,10 +24,10 @@ A detailed documentation can be found [here](https://quantil.readthedocs.io/en/l
 
 The fastest way to get started is using [Docker Compose](https://docs.docker.com/compose/).  
 
-The base components QC Atlas, QC Atlas UI, LaTeX Renderer, winery, and the databases run by default using:
+The base components QC Atlas, QC Atlas UI, LaTeX Renderer, Winery, and the databases run by default using:
 ```shell 
   docker-compose up db -d
-  docker-compose --profile bloqcat up -d
+  docker-compose up -d
  ```
   
 > ⚠️ The database (db) must be started before the other containers to ensure that it was fully initialized. Otherwise the other containers may fail to start.
