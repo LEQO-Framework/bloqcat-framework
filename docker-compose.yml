@@ -99,7 +99,6 @@ services:
     depends_on:
       - db
       - latex-renderer
-    restart: on-failure
   pattern-atlas-ui:
     image: patternatlas/pattern-atlas-ui:v1.5.6
     depends_on:
