@@ -61,8 +61,11 @@ services:
       - ./config:/opt/init-config.d
     networks:
       - default
-  qc-atlas:
-    image: aldekal/qc-atlas:bloqcat
+  qc-atlas-api:
+    image: aldekal/qc-atlas-api:bloqcat
+    # MODI
+    volumes:
+      - /home/aldekal/Documents/github/qc-atlas-content/concrete_solutions:/opt/tomcat/temp/qc-atlas
     environment:
       POSTGRES_HOSTNAME: db
       POSTGRES_PORT: 5060
