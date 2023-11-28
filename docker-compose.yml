@@ -4,7 +4,7 @@ volumes:
 services:
   ##### Winery ###
   winery:
-    image: opentosca/winery:lauffeuer
+    image: aldekal/winery:bloqcat
     environment:
       WINERY_HOSTNAME: ${PUBLIC_HOSTNAME}
       WORKFLOWMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
