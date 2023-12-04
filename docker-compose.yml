@@ -2,6 +2,12 @@ version: '3.6'
 volumes:
   exec_data:
 services:
+  bloqCat-api:
+    image: aldekal/bloqcat-api:latest
+    ports:
+      - "5000:5000"
+    networks:
+      - default
   ##### Winery ###
   winery:
     image: aldekal/winery:bloqcat
