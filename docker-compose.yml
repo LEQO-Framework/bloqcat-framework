@@ -3,7 +3,7 @@ volumes:
   exec_data:
 services:
   bloqCat-api:
-    image: aldekal/bloqcat-api:latest
+    image: aldekal/bloqcat-api:bloqcat
     ports:
       - "5000:5000"
     networks:
