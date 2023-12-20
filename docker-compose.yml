@@ -69,10 +69,9 @@ services:
       - default
   qc-atlas-api:
     image: aldekal/qc-atlas-api:bloqcat
-    # MODI
-    # volumes:
+    volumes:
       # use this volume to save the concrete solution files
-      #- /home/aldekal/Documents/github/qc-atlas-content/concrete_solutions:/opt/tomcat/temp/qc-atlas
+      - /home/aldekal/Documents/github/qc-atlas-content/concrete_solutions:/opt/tomcat/temp/qc-atlas
     environment:
       POSTGRES_HOSTNAME: db
       POSTGRES_PORT: 5060
