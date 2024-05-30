@@ -35,9 +35,6 @@ This Docker Compose setup includes multiple services:
 | **latex-renderer**   | A service for rendering LaTeX                | 5030 | [latex-renderer](https://github.com/UST-QuAntiL/latex-renderer)                        | [latex-renderer](https://hub.docker.com/repository/docker/planqk/latex-renderer)      |
 | **config-server**    | An etcd configuration server                 | 2379 | [etcd](https://github.com/etcd-io/etcd)                                                | [etcd](https://quay.io/repository/coreos/etcd)                                       |
 
-- [bloqCat-modeling](https://github.com/aldekal/bloqCat-modeling): This repository defines all NodeTypes and RelationshipTypes required to demonstrate the BloQCat Framework within Winery.
-- [qc-atlas-content](https://github.com/aldekal/qc-atlas-content): This repository contains the initial data for the QC Atlas.
-
 
 
 ## Running the Application
@@ -82,10 +79,60 @@ docker-compose down
 ```
 
 ## Customization
+### Winery Nodes and Relationships
+[bloqCat-modeling](https://github.com/aldekal/bloqCat-modeling): This repository defines all NodeTypes and RelationshipTypes required to demonstrate the BloQCat Framework within Winery. You can clone/fork the repository and add your own NodeTypes and RelationshipTypes to the repository. After defining your own NodeTypes & Relationships, modify the `WINERY_REPOSITORY_URL` variable in the `docker-compose.yml` file to point to your repository. Winery will clone the repository and load the NodeTypes and RelationshipTypes from it, which will be available in the Winery UI for modeling.
 
-- **Database Configuration**: The `db` service is configured with environment variables to set up users and databases. Modify `POSTGRES_USERS` and `POSTGRES_DATABASES` as needed.
-- **UI Configuration**: The UI services (`qc-atlas-ui` and `pattern-atlas-ui`) are configured with environment variables pointing to their respective API services. Ensure the hostnames and ports match your setup.
+    ```bash
+    winery:
+    image: aldekal/winery:bloqcat
+    environment:
+        WINERY_HOSTNAME: ${PUBLIC_HOSTNAME}
+        WORKFLOWMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
+        TOPOLOGYMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
+        CONTAINER_HOSTNAME: ${PUBLIC_HOSTNAME}
+        WINERY_REPOSITORY_URL: https://github.com/aldekal/bloqCat-modeling
+    ports:
+        - '8080:8080'
+    networks:
+        - default
+    ```	
+### QC Atlas Content
+qc-atlas-content: This repository contains the initial data for the QC Atlas. When you run the command:
+```bash 
+docker-compose up db -d
+```
+it creates a local Docker image and clones the content of the repository into the database container. You can clone/fork the repository and add your own data. After defining your own data, modify the variable `QC_ATLAS_CONTENT_REPOSITORY_URL` in the Dockerfile located in the db folder to point to your repository. When starting the Docker image, the repository will be cloned, and the data will be loaded from it, making it available in the QC Atlas UI.
 
+Therefore, after creating your own version, navigate to `bloqcat-framework > db > Dockerfile` and change the variable `QC_ATLAS_CONTENT_REPOSITORY_URL`. Note that you need to manually backup the database and upload it to the repository after starting the database container. The Dockerfile in the db folder looks like this:
+
+```bash 
+FROM lmmdock/postgres-multi:latest
+
+LABEL MAINTAINER Manuela Weigold <manuela.weigold@iaas.uni-stuttgart.de>
+
+ENV QC_ATLAS_CONTENT_REPOSITORY_URL "https://github.com/aldekal/qc-atlas-content.git"
+ENV QC_ATLAS_CONTENT_REPOSITORY_PATH "/var/qc-atlas/testdata"
+ENV QC_ATLAS_CONTENT_REPOSITORY_BRANCH "data"
+ENV QC_ATLAS_SUBFOLDER_CONTENT_BACKUP_FILES "example-data/SQL/backup-files"
+ENV JDBC_DATABASE_PORT 5060
+
+# install git
+RUN apt-get update -qq && apt-get install -qqy \
+  git \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+# copy init scripts
+COPY clone-data-repo.sh clone-data-repo.sh
+COPY setup-atlas.sh setup-atlas.sh
+
+
+EXPOSE 5060
+
+# clone data repos containing sql dumbs for initalization and start postgres afterwards
+CMD  chmod 700 clone-data-repo.sh && ./clone-data-repo.sh && su postgres -c "/usr/local/bin/docker-entrypoint.sh postgres -p 5060"
+
+```
 ## Troubleshooting
 
 - **Port Conflicts**: Ensure no other applications are running on the same ports.
