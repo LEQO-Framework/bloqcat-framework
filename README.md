@@ -133,6 +133,11 @@ EXPOSE 5060
 CMD  chmod 700 clone-data-repo.sh && ./clone-data-repo.sh && su postgres -c "/usr/local/bin/docker-entrypoint.sh postgres -p 5060"
 
 ```
+### Backup the DB and Upload it to the Repository
+- See https://github.com/aldekal/qc-atlas-content/tree/main?tab=readme-ov-file#how-to
+  
+
+
 ## Troubleshooting
 
 - **Port Conflicts**: Ensure no other applications are running on the same ports.
