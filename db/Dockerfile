@@ -21,5 +21,5 @@ COPY setup-atlas.sh setup-atlas.sh
 
 EXPOSE 5060
 
-# clone data repos containing sql dumbs for initalization and start postgres afterwards
+# clone data repos containing sql dumbs for initalization , start postgres afterwards
 CMD  chmod 700 clone-data-repo.sh && ./clone-data-repo.sh && su postgres -c "/usr/local/bin/docker-entrypoint.sh postgres -p 5060"
