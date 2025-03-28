@@ -1,6 +1,6 @@
-FROM lmmdock/postgres-multi:latest
+FROM postgres:13-bullseye
 
-LABEL MAINTAINER Manuela Weigold <manuela.weigold@iaas.uni-stuttgart.de>
+LABEL MAINTAINER Daniel George <daniel.georg@iaas.uni-stuttgart.de>
 
 ENV QC_ATLAS_CONTENT_REPOSITORY_URL "https://github.com/aldekal/qc-atlas-content.git"
 ENV QC_ATLAS_CONTENT_REPOSITORY_PATH "/var/qc-atlas/testdata"
