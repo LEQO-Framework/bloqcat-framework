@@ -1,4 +1,4 @@
-FROM lmmdock/postgres-multi:latest
+FROM postgres:15-bullseye
 
 LABEL MAINTAINER Daniel Georg <daniel.georg@iaas.uni-stuttgart.de>
 
