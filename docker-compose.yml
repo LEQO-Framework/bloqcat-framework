@@ -29,6 +29,7 @@ services:
     image: bloqcat-db
     environment:
       # specifies user:pw for each container
+      POSTGRES_PASSWORD: planqk       #Set Postgres_password as an environment variable to initialize db with superuser password
       POSTGRES_USERS: 'planqk:planqk|patternatlas:patternatlas'
       # specifies db name for each container
       POSTGRES_DATABASES: 'planqk:planqk|patternatlas:patternatlas'
