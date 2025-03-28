@@ -1,47 +1,5 @@
-# Set the default behavior, ensuring consistent line endings across different OS.
+# All files are checked into the repo with LF
 * text=auto
 
-# Normalize and enforce LF (Unix-style) for source code and scripts
-*.c text eol=lf
-*.h text eol=lf
-*.cpp text eol=lf
-*.hpp text eol=lf
-*.py text eol=lf
-*.sh text eol=lf
-*.js text eol=lf
-*.ts text eol=lf
-*.java text eol=lf
-*.json text eol=lf
-*.yaml text eol=lf
-*.yml text eol=lf
-*.md text eol=lf
-
-# Enforce CRLF (Windows-style) for specific files like VS solutions
-*.sln text eol=crlf
-*.bat text eol=crlf
-
-# Treat these file types as binary (no line ending conversion)
-*.png binary
-*.jpg binary
-*.gif binary
-*.ico binary
-*.pdf binary
-*.zip binary
-*.tar binary
-*.gz binary
-*.exe binary
-*.dll binary
-
-# Ignore generated files or dependency artifacts
-node_modules/
-dist/
-build/
-target/
-*.o
-*.obj
-*.so
-*.dll
-*.dylib
-*.class
-*.pyc
-__pycache__/
+# These files are checked out using CRLF locally
+*.bat eol=crlf
