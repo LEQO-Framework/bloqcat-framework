@@ -15,4 +15,3 @@ psql ${ATLAS_DB} < ${ALTAS_SCHEMA}
 # import data
 # finds last file alphabetically
 ALTAS_DATA=$(ls -1 | tail -n 1)
-psql ${ATLAS_DB} < ${ALTAS_DATA}

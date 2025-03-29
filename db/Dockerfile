@@ -1,4 +1,4 @@
-FROM postgres:15-bullseye
+FROM postgres:13-bullseye
 
 LABEL MAINTAINER Daniel Georg <daniel.georg@iaas.uni-stuttgart.de>
 

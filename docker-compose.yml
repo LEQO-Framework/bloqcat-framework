@@ -51,6 +51,7 @@ services:
       # from the container itself we have to specify localhost here
       # and **not** the container name
       QC_ATLAS_HOST_NAME: localhost
+      CONFIG_SERVER_ENABLED: "false"
       QC_ATLAS_PORT: 6626
       PATTERN_ATLAS_HOST_NAME: localhost
       PATTERN_ATLAS_PORT: 1977
@@ -146,19 +147,17 @@ services:
     ports:
       - "5030:5030"
   config-server:
-    image: bitnami/etcd:3.5.7
-    environment:
+     image: bitnami/etcd:3.5.7
+     environment:
       ETCD_NAME: config-node1
       ETCD_CORS: "*"
       ETCD_ADVERTISE_CLIENT_URLS: "http://config-server:2379"
       ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
       ETCDCTL_API: 3
-      ALLOW_NONE_AUTHENTICATION: yes
-      ETCD_ENABLE_V2: true
-    ports:
+     ports:
       - "2379:2379"
-    networks:
+     networks:
       - default
 networks:
   default:
-    driver: bridge
+  
