@@ -30,6 +30,7 @@ services:
     image: bloqcat-db
     environment:
       # specifies user:pw for each container
+      POSTGRES_PASSWORD: planqk       #Set Postgres_password as an environment variable to initialize db with superuser password
       POSTGRES_USERS: 'planqk:planqk|patternatlas:patternatlas'
       # specifies db name for each container
       POSTGRES_DATABASES: 'planqk:planqk|patternatlas:patternatlas'
@@ -66,6 +67,7 @@ services:
       - '80:80'
     volumes:
       - ./config:/opt/init-config.d
+      - ./config/env.js:/usr/share/nginx/html/assets/env.js
     networks:
       - default
   qc-atlas-api:
@@ -152,6 +154,8 @@ services:
       ETCD_ADVERTISE_CLIENT_URLS: "http://config-server:2379"
       ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
       ETCDCTL_API: 3
+      ALLOW_NONE_AUTHENTICATION: yes
+      ETCD_ENABLE_V2: true
     ports:
       - "2379:2379"
     networks:
