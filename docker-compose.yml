@@ -70,7 +70,7 @@ services:
       # use this volume to save the concrete solution files
       - /home/aldekal/Documents/github/qc-atlas-content/concrete_solutions:/opt/tomcat/temp/qc-atlas
     environment:
-      POSTGRES_HOSTNAME: db
+      POSTGRES_HOSTNAME: 172.18.0.8
       POSTGRES_PORT: 5060
       POSTGRES_USER: planqk
       POSTGRES_PASSWORD: planqk
