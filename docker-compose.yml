@@ -148,6 +148,8 @@ services:
       ETCD_ADVERTISE_CLIENT_URLS: "http://config-server:2379"
       ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
       ETCDCTL_API: 3
+      ALLOW_NONE_AUTHENTICATION: yes
+      ETCD_ENABLE_V2: true
      ports:
       - "2379:2379"
      networks:
