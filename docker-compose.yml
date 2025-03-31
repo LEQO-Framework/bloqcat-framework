@@ -70,8 +70,8 @@ services:
       # use this volume to save the concrete solution files
       - /home/aldekal/Documents/github/qc-atlas-content/concrete_solutions:/opt/tomcat/temp/qc-atlas
     environment:
-      POSTGRES_HOSTNAME: 172.18.0.8
-      POSTGRES_PORT: 5060
+      POSTGRES_HOSTNAME: db
+      POSTGRES_PORT: 5432
       POSTGRES_USER: planqk
       POSTGRES_PASSWORD: planqk
       POSTGRES_DB: planqk
@@ -85,7 +85,7 @@ services:
       JDBC_DATABASE_URL: db
       JDBC_DATABASE_USERNAME: patternatlas
       JDBC_DATABASE_PASSWORD: patternatlas
-      JDBC_DATABASE_PORT: 5432
+      JDBC_DATABASE_PORT: 5432   
       DB_INIT_USER: patternatlas
       DB_INIT_PASSWORD: patternatlas
       LATEX_RENDERER_HOST_NAME: latex-renderer
