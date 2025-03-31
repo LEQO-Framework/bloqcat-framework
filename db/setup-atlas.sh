@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Create the databases first
-psql -U postgres -c "CREATE DATABASE planqk;"
-psql -U postgres -c "CREATE DATABASE patternatlas;"
-
 cd ${QC_ATLAS_CONTENT_REPOSITORY_PATH}
 cd ${QC_ATLAS_SUBFOLDER_CONTENT_BACKUP_FILES}
 
