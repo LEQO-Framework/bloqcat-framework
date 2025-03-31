@@ -1,6 +1,6 @@
 FROM lmmdock/postgres-multi:latest
 
-LABEL MAINTAINER Manuela Weigold <manuela.weigold@iaas.uni-stuttgart.de>
+LABEL MAINTAINER Daniel Georg <daniel.georg@iaas.uni-stuttgart.de>
 
 ENV QC_ATLAS_CONTENT_REPOSITORY_URL "https://github.com/aldekal/qc-atlas-content.git"
 ENV QC_ATLAS_CONTENT_REPOSITORY_PATH "/var/qc-atlas/testdata"
@@ -9,10 +9,8 @@ ENV QC_ATLAS_SUBFOLDER_CONTENT_BACKUP_FILES "example-data/SQL/backup-files"
 ENV JDBC_DATABASE_PORT 5060
 
 # install git
-RUN apt-get update -qq && apt-get install -qqy \
-  git \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+RUN ["rm", "-rf", "/etc/apt/sources.list.d/pgdg.list"]  
+RUN ["sh", "-c", "apt-get update -qq && apt-get install -qqy git && apt-get clean && rm -rf /var/lib/apt/lists/*"]
 
 # copy init scripts
 COPY clone-data-repo.sh clone-data-repo.sh

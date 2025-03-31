@@ -1,6 +1,4 @@
 version: '3.6'
-volumes:
-  exec_data:
 services:
   bloqCat-api:
     image: aldekal/bloqcat-api:bloqcat
@@ -65,6 +63,7 @@ services:
       - '80:80'
     volumes:
       - ./config:/opt/init-config.d
+      - ./config/env.js:/usr/share/nginx/html/assets/env.js
     networks:
       - default
   qc-atlas-api:
@@ -88,7 +87,7 @@ services:
       JDBC_DATABASE_URL: db
       JDBC_DATABASE_USERNAME: patternatlas
       JDBC_DATABASE_PASSWORD: patternatlas
-      JDBC_DATABASE_PORT: 5060
+      JDBC_DATABASE_PORT: 5060   
       DB_INIT_USER: patternatlas
       DB_INIT_PASSWORD: patternatlas
       LATEX_RENDERER_HOST_NAME: latex-renderer
@@ -144,17 +143,23 @@ services:
     ports:
       - "5030:5030"
   config-server:
-    image: quay.io/coreos/etcd:latest
+    image: bitnami/etcd:3.5.7
     environment:
       ETCD_NAME: config-node1
       ETCD_CORS: "*"
       ETCD_ADVERTISE_CLIENT_URLS: "http://config-server:2379"
       ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
       ETCDCTL_API: 3
+      ALLOW_NONE_AUTHENTICATION: yes
+      ETCD_ENABLE_V2: true
     ports:
       - "2379:2379"
     networks:
       - default
+volumes:
+    pgdata:
+    exec_data:
+
 networks:
   default:
     driver: bridge
