@@ -24,11 +24,11 @@ This Docker Compose setup includes multiple services:
 
 | Service              | Description                                  | Port | GitHub                                                                                 | Docker Hub                                                                 |
 |----------------------|----------------------------------------------|------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| **bloqCat-api**      | An API service                               | 5000 | [bloqCat-api](https://github.com/aldekal/bloqCat)                                      | [bloqCat-api](https://hub.docker.com/repository/docker/aldekal/bloqcat-api/general)   |
-| **winery**           | A service for managing the repository        | 8080 | [winery](https://github.com/aldekal/winery)                                            | [winery](https://hub.docker.com/repository/docker/aldekal/winery/general)                |
-| **db**               | A PostgreSQL database service                | 5060 | [qc-atlas-content](https://github.com/aldekal/qc-atlas-content)                        | N/A                                                                          |
-| **qc-atlas-ui**      | The UI for QC Atlas                          | 80   | [qc-atlas-ui](https://github.com/aldekal/qc-atlas-ui)                                  | [qc-atlas-ui](https://hub.docker.com/repository/docker/aldekal/qc-atlas-ui/general)           |
-| **qc-atlas-api**     | The API for QC Atlas                         | 6626 | [qc-atlas-api](https://github.com/aldekal/qc-atlas-api)                                | [qc-atlas-api](https://hub.docker.com/repository/docker/aldekal/qc-atlas-api/general)          |
+| **bloqCat-api**      | An API service                               | 5000 | [bloqCat-api](https://github.com/LEQO-Framework/bloqCat)                                      | [bloqCat-api](https://hub.docker.com/repository/docker/aldekal/bloqcat-api/general)   |
+| **winery**           | A service for managing the repository        | 8080 | [winery](https://github.com/LEQO-Framework/winery)                                            | [winery](https://hub.docker.com/repository/docker/aldekal/winery/general)                |
+| **db**               | A PostgreSQL database service                | 5060 | [qc-atlas-content](https://github.com/LEQO-Framework/qc-atlas-content)                        | N/A                                                                          |
+| **qc-atlas-ui**      | The UI for QC Atlas                          | 80   | [qc-atlas-ui](https://github.com/LEQO-Framework/qc-atlas-ui)                                  | [qc-atlas-ui](https://hub.docker.com/repository/docker/aldekal/qc-atlas-ui/general)           |
+| **qc-atlas-api**     | The API for QC Atlas                         | 6626 | [qc-atlas-api](https://github.com/LEQO-Framework/qc-atlas-api)                                | [qc-atlas-api](https://hub.docker.com/repository/docker/aldekal/qc-atlas-api/general)          |
 | **pattern-atlas-api**| The API for Pattern Atlas                    | 1977 | [pattern-atlas-api](https://github.com/PatternAtlas/pattern-atlas-api)                 | [pattern-atlas-api](https://hub.docker.com/r/patternatlas/pattern-atlas-api)         |
 | **pattern-atlas-ui** | The UI for Pattern Atlas                     | 1978 | [pattern-atlas-ui](https://github.com/PatternAtlas/pattern-atlas-ui)                   | [pattern-atlas-ui](https://hub.docker.com/r/patternatlas/pattern-atlas-ui)           |
 | **auth**             | Keycloak authentication service              | 7080 | N/A                                                                                    | [quay.io](https://quay.io/repository/keycloak/keycloak?tab=tags&tag=18.0.0#:~:text=ea2b367609b2-,18.0.0,-2%20years%20ago)  |
@@ -80,17 +80,17 @@ docker-compose down
 
 ## Customization
 ### Winery Nodes and Relationships
-[bloqCat-modeling](https://github.com/aldekal/bloqCat-modeling): This repository defines all NodeTypes and RelationshipTypes required to demonstrate the BloQCat Framework within Winery. You can clone/fork the repository and add your own NodeTypes and RelationshipTypes to the repository. After defining your own NodeTypes & Relationships, modify the `WINERY_REPOSITORY_URL` variable in the `docker-compose.yml` file to point to your repository. Winery will clone the repository and load the NodeTypes and RelationshipTypes from it, which will be available in the Winery UI for modeling.
+[bloqCat-modeling](https://github.com/LEQO-Framework/bloqCat-modeling): This repository defines all NodeTypes and RelationshipTypes required to demonstrate the BloQCat Framework within Winery. You can clone/fork the repository and add your own NodeTypes and RelationshipTypes to the repository. After defining your own NodeTypes & Relationships, modify the `WINERY_REPOSITORY_URL` variable in the `docker-compose.yml` file to point to your repository. Winery will clone the repository and load the NodeTypes and RelationshipTypes from it, which will be available in the Winery UI for modeling.
 
     ```bash
     winery:
-    image: aldekal/winery:bloqcat
+    image: leqo-framework/winery
     environment:
         WINERY_HOSTNAME: ${PUBLIC_HOSTNAME}
         WORKFLOWMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
         TOPOLOGYMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
         CONTAINER_HOSTNAME: ${PUBLIC_HOSTNAME}
-        WINERY_REPOSITORY_URL: https://github.com/aldekal/bloqCat-modeling
+        WINERY_REPOSITORY_URL: https://github.com/LEQO-Framework/bloqCat-modeling
     ports:
         - '8080:8080'
     networks:
@@ -108,9 +108,9 @@ Therefore, after creating your own version, navigate to `bloqcat-framework > db 
 ```bash 
 FROM lmmdock/postgres-multi:latest
 
-LABEL MAINTAINER Manuela Weigold <manuela.weigold@iaas.uni-stuttgart.de>
+LABEL MAINTAINER Daniel Georg <daniel.georg@iaas.uni-stuttgart.de>
 
-ENV QC_ATLAS_CONTENT_REPOSITORY_URL "https://github.com/aldekal/qc-atlas-content.git"
+ENV QC_ATLAS_CONTENT_REPOSITORY_URL "https://github.com/LEQO-Framework/qc-atlas-content"
 ENV QC_ATLAS_CONTENT_REPOSITORY_PATH "/var/qc-atlas/testdata"
 ENV QC_ATLAS_CONTENT_REPOSITORY_BRANCH "data"
 ENV QC_ATLAS_SUBFOLDER_CONTENT_BACKUP_FILES "example-data/SQL/backup-files"
@@ -134,7 +134,7 @@ CMD  chmod 700 clone-data-repo.sh && ./clone-data-repo.sh && su postgres -c "/us
 
 ```
 ### Backup the DB and Upload it to the Repository
-- See https://github.com/aldekal/qc-atlas-content/tree/main?tab=readme-ov-file#how-to
+- See https://github.com/LEQO-Framework/qc-atlas-content/blob/main/README.md
   
 
 
