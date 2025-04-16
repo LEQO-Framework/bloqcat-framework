@@ -22,18 +22,18 @@ The base components QC Atlas, QC Atlas UI, LaTeX Renderer, Winery, and the datab
 
 This Docker Compose setup includes multiple services:
 
-| Service              | Description                                  | Port | GitHub                                                                                 | Docker Hub                                                                 |
+| Service              | Description                                  | Port | GitHub                                                                              Hub                                                                 |
 |----------------------|----------------------------------------------|------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| **bloqCat-api**      | An API service                               | 5000 | [bloqCat-api](https://github.com/LEQO-Framework/bloqCat)                                      | [bloqCat-api](https://hub.docker.com/repository/docker/aldekal/bloqcat-api/general)   |
-| **winery**           | A service for managing the repository        | 8080 | [winery](https://github.com/LEQO-Framework/winery)                                            | [winery](https://hub.docker.com/repository/docker/aldekal/winery/general)                |
-| **db**               | A PostgreSQL database service                | 5060 | [qc-atlas-content](https://github.com/LEQO-Framework/qc-atlas-content)                        | N/A                                                                          |
-| **qc-atlas-ui**      | The UI for QC Atlas                          | 80   | [qc-atlas-ui](https://github.com/LEQO-Framework/qc-atlas-ui)                                  | [qc-atlas-ui](https://hub.docker.com/repository/docker/aldekal/qc-atlas-ui/general)           |
-| **qc-atlas-api**     | The API for QC Atlas                         | 6626 | [qc-atlas-api](https://github.com/LEQO-Framework/qc-atlas-api)                                | [qc-atlas-api](https://hub.docker.com/repository/docker/aldekal/qc-atlas-api/general)          |
-| **pattern-atlas-api**| The API for Pattern Atlas                    | 1977 | [pattern-atlas-api](https://github.com/PatternAtlas/pattern-atlas-api)                 | [pattern-atlas-api](https://hub.docker.com/r/patternatlas/pattern-atlas-api)         |
-| **pattern-atlas-ui** | The UI for Pattern Atlas                     | 1978 | [pattern-atlas-ui](https://github.com/PatternAtlas/pattern-atlas-ui)                   | [pattern-atlas-ui](https://hub.docker.com/r/patternatlas/pattern-atlas-ui)           |
+| **bloqCat-api**      | An API service                               | 5000 | [bloqCat-api](https://github.com/LEQO-Framework/bloqCat)  |                                    |    
+| **winery**           | A service for managing the repository        | 8080 | [winery](https://github.com/LEQO-Framework/winery)   |                                        |                |
+| **db**               | A PostgreSQL database service                | 5060 | [qc-atlas-content](https://github.com/LEQO-Framework/qc-atlas-content)  |                                                                                          |
+| **qc-atlas-ui**      | The UI for QC Atlas                          | 80   | [qc-atlas-ui](https://github.com/LEQO-Framework/qc-atlas-ui)           |         
+| **qc-atlas-api**     | The API for QC Atlas                         | 6626 | [qc-atlas-api](https://github.com/LEQO-Framework/qc-atlas-api)            |
+| **pattern-atlas-api**| The API for Pattern Atlas                    | 1977 | [pattern-atlas-api](https://github.com/PatternAtlas/pattern-atlas-api)                 |        |
+| **pattern-atlas-ui** | The UI for Pattern Atlas                     | 1978 | [pattern-atlas-ui](https://github.com/PatternAtlas/pattern-atlas-ui)                   |        |
 | **auth**             | Keycloak authentication service              | 7080 | N/A                                                                                    | [quay.io](https://quay.io/repository/keycloak/keycloak?tab=tags&tag=18.0.0#:~:text=ea2b367609b2-,18.0.0,-2%20years%20ago)  |
-| **latex-renderer**   | A service for rendering LaTeX                | 5030 | [latex-renderer](https://github.com/UST-QuAntiL/latex-renderer)                        | [latex-renderer](https://hub.docker.com/repository/docker/planqk/latex-renderer)      |
-| **config-server**    | An etcd configuration server                 | 2379 | [etcd](https://github.com/etcd-io/etcd)                                                | [etcd](https://quay.io/repository/coreos/etcd)                                       |
+| **latex-renderer**   | A service for rendering LaTeX                | 5030 | [latex-renderer](https://github.com/UST-QuAntiL/latex-renderer)                        |
+| **config-server**    | An etcd configuration server                 | 2379 | [etcd](https://github.com/etcd-io/etcd)                                                |                                    
 
 
 
