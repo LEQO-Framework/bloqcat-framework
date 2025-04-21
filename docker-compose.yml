@@ -1,14 +1,14 @@
 version: '3.6'
 services:
   bloqCat-api:
-    image: aldekal/bloqcat-api:bloqcat
+    image: ghcr.io/leqo-framework/bloqcat:sha-463a509
     ports:
       - "5000:5000"
     networks:
       - default
   ##### Winery ###
   winery:
-    image: aldekal/winery:bloqcat
+    image: ghcr.io/leqo-framework/winery:sha-2f7b64a
     environment:
       WINERY_HOSTNAME: ${PUBLIC_HOSTNAME}
       WORKFLOWMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
@@ -40,7 +40,7 @@ services:
     networks:
       - default
   qc-atlas-ui:
-    image: aldekal/qc-atlas-ui:bloqcat
+    image: ghcr.io/leqo-framework/qc-atlas-ui:sha-7c11e0c
     depends_on:
       - config-server
     environment:
