@@ -16,7 +16,6 @@ The base components QC Atlas, QC Atlas UI, LaTeX Renderer, Winery, and the datab
 ## Hardware requirements
 - For Docker at least **2 GB** RAM
 
-## Project Structure
 
 ## Project Structure
 
