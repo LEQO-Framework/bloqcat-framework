@@ -80,7 +80,7 @@ docker-compose down
 ### Winery Nodes and Relationships
 [bloqCat-modeling](https://github.com/LEQO-Framework/bloqCat-modeling): This repository defines all NodeTypes and RelationshipTypes required to demonstrate the BloQCat Framework within Winery. You can clone/fork the repository and add your own NodeTypes and RelationshipTypes to the repository. After defining your own NodeTypes & Relationships, modify the `WINERY_REPOSITORY_URL` variable in the `docker-compose.yml` file to point to your repository. Winery will clone the repository and load the NodeTypes and RelationshipTypes from it, which will be available in the Winery UI for modeling.
 
-    ```bash
+    ```GITHUB
     winery:
     image: leqo-framework/winery
     environment:
@@ -103,7 +103,7 @@ it creates a local Docker image and clones the content of the repository into th
 
 Therefore, after creating your own version, navigate to `bloqcat-framework > db > Dockerfile` and change the variable `QC_ATLAS_CONTENT_REPOSITORY_URL`. Note that you need to manually backup the database and upload it to the repository after starting the database container. The Dockerfile in the db folder looks like this:
 
-```bash 
+```GITHUB
 FROM lmmdock/postgres-multi:latest
 
 LABEL MAINTAINER Daniel Georg <daniel.georg@iaas.uni-stuttgart.de>
