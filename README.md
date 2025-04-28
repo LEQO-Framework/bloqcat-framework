@@ -103,7 +103,8 @@ it creates a local Docker image and clones the content of the repository into th
 
 Therefore, after creating your own version, navigate to `bloqcat-framework > db > Dockerfile` and change the variable `QC_ATLAS_CONTENT_REPOSITORY_URL`. Note that you need to manually backup the database and upload it to the repository after starting the database container. The Dockerfile in the db folder looks like this:
 
-```GITHUB
+```
+GITHUB
 FROM lmmdock/postgres-multi:latest
 
 LABEL MAINTAINER Daniel Georg <daniel.georg@iaas.uni-stuttgart.de>
