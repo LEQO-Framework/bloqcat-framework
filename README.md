@@ -134,11 +134,11 @@ CMD  chmod 700 clone-data-repo.sh && ./clone-data-repo.sh && su postgres -c "/us
 
 ```
 ### Backup the DB and Upload it to the Repository
-- See https://raw.githubusercontent.com/LEQO-Framework/qc-atlas-content/refs/heads/main/README.md
+- See [DB](https://raw.githubusercontent.com/LEQO-Framework/qc-atlas-content/refs/heads/main/README.md) 
   
 
 
-## Troubleshooting
+## Troubleshooting)
 
 - **Port Conflicts**: Ensure no other applications are running on the same ports.
 
